@@ -1,0 +1,23 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - run: git config --global core.autocrlf false  # Preserve line endings
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: |
+        npm ci
+        npm link .
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/tagazok/talks.git
+        cd foldable && npm run deploy
+      env:
+        CI: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
