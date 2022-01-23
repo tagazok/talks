@@ -5,7 +5,7 @@
   "scripts": {
     "start": "bs s",
     "build": "rm -rf dist && bs export --web foldable.md",
-    "deploy": "gh-pages -d dist -u \"tagazok <node@free.fr>\""
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "backslide": "^3.0.0"
