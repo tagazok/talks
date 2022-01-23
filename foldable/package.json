@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "bs s",
-    "predeploy": "rm -rf dist && bs export --web foldable.md",
+    "build": "rm -rf dist && bs export --web foldable.md",
     "deploy": "gh-pages -d dist -u \"tagazok <node@free.fr>\""
   },
   "dependencies": {
